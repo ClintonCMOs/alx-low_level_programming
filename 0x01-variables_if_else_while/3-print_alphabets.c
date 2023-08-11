@@ -9,7 +9,7 @@ int main(void)
 	char letter = 'a';
 	int count = 0;
 
-	while (letter <= 'z' && count < 3)
+	while (letter <= 'z' && count < 26)
 	{
 		putchar(letter);
 		letter++;
@@ -19,7 +19,7 @@ int main(void)
 	letter = 'A';
 	count = 0;
 
-	while (letter <= 'Z' && count < 3)
+	while (letter <= 'Z' && count < 26)
 	{
 		putchar(letter);
 		letter++;
