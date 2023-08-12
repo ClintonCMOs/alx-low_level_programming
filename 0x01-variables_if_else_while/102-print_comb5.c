@@ -10,7 +10,7 @@ int main(void)
 
 	for (i = 0; i < 99; i++)
 	{
-		for (j = i; j <= 99; j++)
+		for (j = i + 1; j <= 99; j++)
 		{
 			tens_i = i / 10;
 			ones_i = i % 10;
@@ -21,7 +21,7 @@ int main(void)
 			putchar(' ');
 			putchar(tens_j + '0');
 			putchar(ones_j + '0');
-			if (i < 99)
+			if (i < 98)
 			{
 				putchar(',');
 				putchar(' ');
