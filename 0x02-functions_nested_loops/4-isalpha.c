@@ -1,13 +1,13 @@
 #include "main.h"
 /**
  * _isalpha - checking alphabetical order character
- * @v: Character to be checked
+ * @c: Character to be checked
  *
  * Return: 1 or 0
  */
-int _isalpha(int v)
+int _isalpha(int c)
 {
-	if ((v >= 65 && v <= 90) || (v >= 97 && v <= 122))
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
 		return (1);
 	}
