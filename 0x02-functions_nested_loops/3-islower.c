@@ -4,7 +4,7 @@
  *
  * Return: 1 if lowercase and 0 otherwise
  */
-void int_islower(int c)
+int _islower(int c)
 {
 	if (c >= 'a' && c <= 'z')
 	{
