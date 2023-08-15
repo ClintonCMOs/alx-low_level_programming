@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * int_islower - entry point
+ * _islower - entry point
  *
  * Return: 1 if lowercase and 0 otherwise
  */
