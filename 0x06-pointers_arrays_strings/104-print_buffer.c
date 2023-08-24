@@ -3,9 +3,9 @@
 
 /**
  * print_buffer - Prints a buffer 10 bytes at a time
- * 
  * @b: The buffer to be printed.
  * @size: The number of bytes from the buffer.
+ *
  * Return: buffer
  */
 
