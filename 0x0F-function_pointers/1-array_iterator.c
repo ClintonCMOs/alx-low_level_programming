@@ -1,5 +1,5 @@
 #include "function_pointers.h"
-#include <stdio.h>
+#include <stdlib.h>
 /**
  * array_iterator - Applies a function to each element of integer array
  * @array: Integer array to iterate over
@@ -8,7 +8,7 @@
  */
 void array_iterator(int *array, size_t size, void(*action)(int))
 {
-	unsigned int i;
+	size_t i;
 
 	if (array == NULL || action == NULL)
 		return;
