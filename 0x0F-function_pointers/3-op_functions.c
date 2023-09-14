@@ -5,14 +5,14 @@
  * op_add - adds five functions
  * @a: first int a
  * @b: second int b
- * Return: sum 
+ * Return: sum
  */
 int op_add(int a, int b)
 {
 	return (a + b);
 }
 /**
- * op_sub - subtracts two 
+ * op_sub - subtracts two
  * @a: first int a
  * @b: second int b
  * Return: difference
@@ -25,7 +25,7 @@ int op_sub(int a, int b)
  * op_mul - multiplies two integers
  * @a: first int a
  * @b: second int b
- * Return: multiplication 
+ * Return: multiplication
  */
 int op_mul(int a, int b)
 {
