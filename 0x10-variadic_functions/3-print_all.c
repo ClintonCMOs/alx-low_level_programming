@@ -11,8 +11,8 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	char *separator = "";
 	unsigned int i = 0;
+	char *separator = "";
 	char *str;
 
 	va_start(args, format);
