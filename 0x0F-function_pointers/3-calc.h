@@ -10,7 +10,7 @@ int (*get_op_func(char *s))(int, int);
 /**
  * struct op - Struct op structure
  * @op: The operator
- * @f: The function 
+ * @f: The function
  */
 typedef struct op
 {
