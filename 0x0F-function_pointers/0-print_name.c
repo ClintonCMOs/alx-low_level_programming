@@ -7,9 +7,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	while (name != NULL && f != NULL)
-	{
-		f(name);
-		break;
-	}
+	if (name == NULL && f == NULL)
+		return;
+	f(name);
 }
