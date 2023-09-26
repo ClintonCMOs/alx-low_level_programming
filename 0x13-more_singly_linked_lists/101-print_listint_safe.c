@@ -31,18 +31,19 @@ listint_t *find_listint_loop_linked(listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t length;
-	int loops;
+	size_t length = 0;
+	int loops = 1;
 	listint_t *loopsnode;
 
 	loopsnode = find_listint_loop_linked((listint_t *) head);
 
-	for (length = 0, loops = 1; (head != loopsnode || loops) && head != NULL; length++)
+	while ((head != loopsnode || loops) && head != NULL)
 	{
 		printf("[%p] %d\n", (void *) head, head->n);
 		if (head == loopsnode)
 			loops = 0;
 		head = head->next;
+		length++;
 	}
 
 	if (loopsnode != NULL)
