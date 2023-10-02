@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * main - Copies the content of a file to another file.
- * @argc: The number of command-line arguments.
- * @argv: An array of command-line argument strings.
+ * @ac: The number of command-line arguments.
+ * @av: An array of command-line argument strings.
  *
  * Return: 0 on success, or an error code on failure.
  */
