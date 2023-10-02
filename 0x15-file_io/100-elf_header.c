@@ -1,9 +1,9 @@
 #include "main.h"
 #include <elf.h>
 
-void elf_finder(unsigned char *e_ident);
-void magic_printer(unsigned char *e_ident);
-void class_printer(unsigned char *e_ident);
+void elf_checker(unsigned char *e_ident);
+void magic_display(unsigned char *e_ident);
+void class_display(unsigned char *e_ident);
 void data_printer(unsigned char *e_ident);
 void version_printer(unsigned char *e_ident);
 void osabi_printer(unsigned char *e_ident);
@@ -13,13 +13,13 @@ void entry_printer(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
-  *elf_finder - Checks if a file is an ELF file.
+  *elf_checker - Checks whether a file is an ELF file.
   *
   *@c: The pointer to an array containing the ELF magic numbers.
   *
   *Desc: If the file is not an ELF file - exit code 98.
   */
-void elf_finder(unsigned char *c)
+void elf_checker(unsigned char *c)
 {
 	int i;
 
@@ -34,13 +34,13 @@ void elf_finder(unsigned char *c)
 }
 
 /**
-  *magic_printer - Prints the magic numbers of an ELF header.
+  *magic_display - Prints the magic numbers of an ELF header.
   *
   *@c: The pointer to an array containing the ELF magic numbers.
   *
   *Desc: Spaces separate magic numbers.
   */
-void magic_printer(unsigned char *c)
+void magic_display(unsigned char *c)
 {
 	int i;
 
@@ -57,13 +57,13 @@ void magic_printer(unsigned char *c)
 }
 
 /**
-  *class_printer - Prints the class of an ELF header.
+  *class_display - Prints the class of an ELF header.
   *
   *@c: A pointer to an array containing the ELF class.
   *
   *Desc: prints class of an ELF file
   */
-void class_printer(unsigned char *c)
+void class_display(unsigned char *c)
 {
 	printf("  Class:                             ");
 	switch (c[EI_CLASS])
@@ -300,10 +300,10 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
-	elf_finder(header->e_ident);
+	elf_checker(header->e_ident);
 	printf("ELF Header:\n");
-	magic_printer(header->e_ident);
-	class_printer(header->e_ident);
+	magic_display(header->e_ident);
+	class_display(header->e_ident);
 	data_printer(header->e_ident);
 	version_printer(header->e_ident);
 	osabi_printer(header->e_ident);
