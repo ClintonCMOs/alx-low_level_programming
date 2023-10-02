@@ -1,9 +1,5 @@
 #include "main.h"
-#define BUFFER_SIZE 1024
 
-int check_arguments(int argc);
-int open_files(char *source, char *destination, int *source_fd, int *dest_fd);
-int copy_file_contents(int source_fd, int dest_fd);
 /**
  * main - Copies the content of a file to another file.
  * @argc: The number of command-line arguments.
