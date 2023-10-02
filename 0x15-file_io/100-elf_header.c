@@ -2,14 +2,14 @@
 #include <elf.h>
 
 void elf_checker(unsigned char *e_ident);
-void magic_display(unsigned char *e_ident);
-void class_display(unsigned char *e_ident);
-void data_printer(unsigned char *e_ident);
-void version_printer(unsigned char *e_ident);
-void osabi_printer(unsigned char *e_ident);
-void abi_printer(unsigned char *e_ident);
-void type_printer(unsigned int e_type, unsigned char *e_ident);
-void entry_printer(unsigned long int e_entry, unsigned char *e_ident);
+void Magic_display(unsigned char *e_ident);
+void Class_display(unsigned char *e_ident);
+void Data_display(unsigned char *e_ident);
+void Version_display(unsigned char *e_ident);
+void OS_ABI_display(unsigned char *e_ident);
+void ABI_Version_display(unsigned char *e_ident);
+void Type_display(unsigned int e_type, unsigned char *e_ident);
+void Entry_pt_display(unsigned long int e_entry, unsigned char *e_ident);
 void close_elf(int elf);
 
 /**
@@ -34,13 +34,13 @@ void elf_checker(unsigned char *c)
 }
 
 /**
-  *magic_display - Prints the magic numbers of an ELF header.
+  *Magic_display - Prints the magic numbers of an ELF header.
   *
   *@c: The pointer to an array containing the ELF magic numbers.
   *
   *Desc: Spaces separate magic numbers.
   */
-void magic_display(unsigned char *c)
+void Magic_display(unsigned char *c)
 {
 	int i;
 
@@ -57,13 +57,13 @@ void magic_display(unsigned char *c)
 }
 
 /**
-  *class_display - Prints the class of an ELF header.
+  *Class_display - Prints the class of an ELF header.
   *
   *@c: A pointer to an array containing the ELF class.
   *
   *Desc: prints class of an ELF file
   */
-void class_display(unsigned char *c)
+void Class_display(unsigned char *c)
 {
 	printf("  Class:                             ");
 	switch (c[EI_CLASS])
@@ -83,13 +83,13 @@ void class_display(unsigned char *c)
 }
 
 /**
-  *data_printer - Fuction that Prints the data of an ELF header.
+  *Data_display - Fuction that Prints the data of an ELF header.
   *
   *@c: A pointer to an array containing the ELF class.
   *
   *Desc: print the data of an elf header
   */
-void data_printer(unsigned char *c)
+void Data_display(unsigned char *c)
 {
 	printf("  Data:                              ");
 	switch (c[EI_DATA])
@@ -109,13 +109,13 @@ void data_printer(unsigned char *c)
 }
 
 /**
-  *version_printer - Prints the version of an ELF header.
+  *Version_display - Prints the version of an ELF header.
   *
   *@c: A pointer to an array containing the ELF version.
   *
   *Desc: prints the version of elf header
   */
-void version_printer(unsigned char *c)
+void Version_display(unsigned char *c)
 {
 	printf("  Version:                           %d",
 	       c[EI_VERSION]);
@@ -131,13 +131,13 @@ void version_printer(unsigned char *c)
 }
 
 /**
-  *osabi_printer - Prints the OS/ABI of an ELF header.
+  *OS_ABI_display - Prints the OS/ABI of an ELF header.
   *
   *@c: A pointer to an array containing the ELF version.
   *
   *Desc: print OS/ABI of an ELF header.
   */
-void osabi_printer(unsigned char *c)
+void OS_ABI_display(unsigned char *c)
 {
 	printf("  OS/ABI:                            ");
 
@@ -178,26 +178,26 @@ void osabi_printer(unsigned char *c)
 	}
 }
 /**
-  *abi_printer - Prints the ABI version of an ELF header.
+  *ABI_Version_display - Prints the ABI version of an ELF header.
   *
   *@c: A pointer to an array containing the ELF ABI version.
   *
   *Desc: prints the ABI version
   */
-void abi_printer(unsigned char *c)
+void ABI_Version_display(unsigned char *c)
 {
 	printf("  ABI Version:                       %d\n",
 	       c[EI_ABIVERSION]);
 }
 
 /**
-  *type_printer - Prints the type of an ELF header.
+  *Type_display - Prints the type of an ELF header.
   *
   *@e: The ELF type.
   *
   *@c: A pointer to an array containing the ELF class.
   */
-void type_printer(unsigned int e, unsigned char *c)
+void Type_display(unsigned int e, unsigned char *c)
 {
 	if (c[EI_DATA] == ELFDATA2MSB)
 		e >>= 8;
@@ -225,13 +225,13 @@ void type_printer(unsigned int e, unsigned char *c)
 }
 
 /**
-  *entry_printer - Prints the entry point of an ELF header.
+  *Entry_pt_display - Prints the entry point of an ELF header.
   *
   *@ee: The address of the ELF entry point.
   *
   *@c: A pointer to an array containing the ELF class.
   */
-void entry_printer(unsigned long int ee, unsigned char *c)
+void Entry_pt_display(unsigned long int ee, unsigned char *c)
 {
 	printf("  Entry point address:               ");
 
@@ -302,14 +302,14 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 	elf_checker(header->e_ident);
 	printf("ELF Header:\n");
-	magic_display(header->e_ident);
-	class_display(header->e_ident);
-	data_printer(header->e_ident);
-	version_printer(header->e_ident);
-	osabi_printer(header->e_ident);
-	abi_printer(header->e_ident);
-	type_printer(header->e_type, header->e_ident);
-	entry_printer(header->e_entry, header->e_ident);
+	Magic_display(header->e_ident);
+	Class_display(header->e_ident);
+	Data_display(header->e_ident);
+	Version_display(header->e_ident);
+	OS_ABI_display(header->e_ident);
+	ABI_Version_display(header->e_ident);
+	Type_display(header->e_type, header->e_ident);
+	Entry_pt_display(header->e_entry, header->e_ident);
 	free(header);
 	close_elf(o);
 	return (0);
